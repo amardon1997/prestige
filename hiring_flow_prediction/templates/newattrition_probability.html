@@ -1,0 +1,150 @@
+{% extends 'newbase.html' %}
+{% load static %}
+{% block content %}
+<div class="contain__area">
+    <div class="row chart__section">
+        <!-- Attrition Probability Prediction -->
+        <div class="col-md-12">
+            <div class="form__section">
+                <form action="/newattrition_probability/" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h3 class="heading">
+                                Attrition Probability Prediction
+                            </h3>
+                        </div>
+                
+                        <div class="col-md-4">
+                            <div class="input__block">
+                                <label for="department-select">Select Department</label>
+                                <select id="department-select" name="department">
+                                    <option value="Open Source">Open Source</option>
+                                    <option value="Human Resource">Human Resource</option>
+                                    <option value="Mobile Application Development">Mobile Application Development</option>
+                                    <option value="Digital Marketing">Digital Marketing</option>
+                                    <option value="Quality">Quality</option>
+                                    <option value="Systems">Systems</option>
+                                    <option value="Business Support">Business Support</option>
+                                    <option value="Sales">Sales</option>
+                                    <option value="Microsoft">Microsoft</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="Finance and Accounts">Finance and Accounts</option>
+                                </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-md-4">
+                            <div class="input__block">
+                                <label for="year-select">Select Year</label>
+                                <select id="year-select" name="year">
+                                    <!-- JavaScript will populate the options here -->
+                                </select>
+                            </div>
+                        </div>
+                
+                        <div class="col-md-3">
+                            <div class="input__block">
+                                <label class="hide__label">Submit</label>
+                                <button type="submit" class="main__btn">
+                                    Apply Filter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                
+                <script>
+                    // JavaScript code to populate the "Select Year" dropdown
+                    var yearSelect = document.getElementById("year-select");
+                    var currentYear = new Date().getFullYear();
+                
+                    for (var i = 0; i < 16; i++) { // Loop for current year + next 15 years
+                        var option = document.createElement("option");
+                        option.value = currentYear + i;
+                        option.text = currentYear + i;
+                        yearSelect.appendChild(option);
+                    }
+                </script>
+                
+                    <!-- <div class="col-md-8">
+                        <div class="card chart__block">
+                            <div class="top__heading">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h3 class="heading">
+                                            Attrition Rate Graph
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <canvas
+                                id="growthInsights"
+                            ></canvas>
+                        </div>
+                    </div> -->
+                    <div class="col-md-4">
+                        <div class="card chart__block mh-auto">
+                            <h3 class="heading">
+                                Percent of Attrition
+                            </h3>
+                            <div class="top__count mb-0">
+                                <div class="card dash-widget">
+                                    <div class="card-body">
+                                        <span
+                                            class="dash-widget-icon"
+                                            ><i
+                                                class="fa fa-percent"
+                                            ></i
+                                        ></span>
+                                        <div
+                                            class="dash-widget-info"
+                                        >
+                                            <h3>{{ predicted_attrition_rate }}</h3>
+                                            <span>Percent</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card chart__block mh-auto">
+                            <h3 class="heading">
+                                Reason Of Attrition
+                            </h3>
+                            <div class="reason__block">
+                                <ul>
+                                    <li>
+                                        Poor job satisfaction
+                                        and pay. Job
+                                        satisfaction and pay
+                                        often go hand-in-hand.
+                                    </li>
+                                    <li>
+                                        Not enough career
+                                        opportunities.
+                                    </li>
+                                    <li>
+                                        Poor workplace culture.
+                                    </li>
+                                    <li>
+                                        Lack of employee
+                                        motivation.
+                                    </li>
+                                    <li>
+                                        Poor work-life balance.
+                                    </li>
+                                    <li>
+                                        Not fitting in and
+                                        feeling a sense of
+                                        belonging.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

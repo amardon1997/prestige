@@ -1,0 +1,156 @@
+{% extends 'newbase.html' %}
+{% load static %}
+{% block content %}
+<div class="contain__area">
+    <div class="row top__count">
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget bg-c-teal">
+                <div class="card-body">
+                    <span class="dash-widget-icon"
+                        ><i class="fa fa-cubes"></i
+                    ></span>
+                    <div class="dash-widget-info">
+                        <h3>108</h3>
+                        <span>Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget bg-c-purple">
+                <div class="card-body">
+                    <span class="dash-widget-icon"
+                        ><i class="fa fa-usd"></i
+                    ></span>
+                    <div class="dash-widget-info">
+                        <h3>100</h3>
+                        <span>Clients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget bg-c-pink">
+                <div class="card-body">
+                    <span class="dash-widget-icon"
+                        ><i class="fa fa-diamond"></i
+                    ></span>
+                    <div class="dash-widget-info">
+                        <h3>97</h3>
+                        <span>Tasks</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+            <div class="card dash-widget bg-c-gold">
+                <div class="card-body">
+                    <span class="dash-widget-icon"
+                        ><i class="fa fa-user"></i
+                    ></span>
+                    <div class="dash-widget-info">
+                        <h3>{{ result }}</h3>
+                        <span>Employees</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ---------------------------------------------- -->
+
+    <div
+        class="row chart__section d-flex justify-content-center"
+    >
+        <div class="col-md-8">
+            <div class="card chart__block">
+                <h3 class="heading">
+                    Department-Wise Employee Count
+                </h3>
+                <canvas id="employeeCount1"></canvas>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card chart__block">
+                <h3 class="heading">
+                    Distribution Of Employees
+                </h3>
+                <canvas id="employeeChart"></canvas>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-6">
+        <div class="card chart__block">
+            <div class="top__heading">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3 class="heading">Employee Growth Insights</h3>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row form__section">
+                            <div class="col-6">
+                                <div class="input__block">
+                                    <label>Select Year</label>
+                                    <select>
+                                        <option>2000</option>
+                                        <option>2001</option>
+                                        <option>2002</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="input__block ">
+                                    <label>Select Month</label>
+                                    <select>
+                                        <option>Jan - June</option>
+                                        <option>July - Dec</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <canvas id="growthInsights"></canvas>
+        </div>
+    </div> -->
+
+        <div class="col-md-10">
+            <div class="card chart__block">
+                <div class="top__heading">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h3 class="heading">
+                                Distribution Of <br /> Salary Range
+                            </h3>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form__section">
+                                <!-- <div class="input__block">
+                                    <label for="location">Location</label>
+                                    <select name="location" id="location">
+                                        <option value="Mumbai">Mumbai</option>
+                                        <option value="Ahmedabad" >Ahmedabad</option>
+                                    </select>
+                                </div> -->
+                                <form method="GET" action="{% url 'employee' %}">
+                                    <div class="input__block">
+                                        <label for="location">Location</label>
+                                        <select name="location" id="location">
+                                            <option value="Mumbai" {% if selected_location == 'Mumbai' %}selected{% endif %} >Mumbai</option>
+                                            <option value="Ahmedabad" {% if selected_location == 'Ahmedabad' %}selected{% endif %} >Ahmedabad</option>
+                                        </select>
+                                    </div>
+                                    <button class="main__btn button" type="submit" >Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <canvas id="salaryChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

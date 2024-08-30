@@ -1,0 +1,543 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=0"
+        />
+        <title>Dashboard</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    </head>
+
+    <body>
+        <div class="main__section">
+            <div class="sidebar">
+                <div class="close__btn">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <div class="dashboard__logo">
+                    <h3>HR Prediction</h3>
+                </div>
+                <div class="sidebar__navigation">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="/newemployee_insights/"
+                                ><i class="fa fa-puzzle-piece"></i
+                                ><span>Employees Insights</span></a
+                            >
+                        </li>
+
+                        <!-- Dropdown-->
+                        <li class="panel panel-default" id="dropdown">
+                            <a data-toggle="collapse" href="#dropdown-lvl1">
+                                <i class="fa fa-diamond"></i>
+                                <span>Attrition Rate Analysis</span>
+                                <span class="caret ml-2"
+                                    ><i
+                                        class="fa fa-angle-down"
+                                        aria-hidden="true"
+                                    ></i
+                                ></span>
+                            </a>
+                            <!-- Dropdown level 1 -->
+                            <div
+                                id="dropdown-lvl1"
+                                class="panel-collapse collapse"
+                            >
+                                <div class="panel-body">
+                                    <ul class="nav navbar-nav">
+                                        <li>
+                                            <a href="/newdata_visualization/"
+                                                >Data Visualization</a
+                                            >
+                                        </li>
+                                        <li>
+                                            <a
+                                                href="/newattrition_probability/"
+                                                >Attrition Probability
+                                                Prediction</a
+                                            >
+                                        </li>
+
+                                        <!-- Dropdown level 2 -->
+
+                                        <!-- <li class="panel panel-default" id="dropdown">
+                                        <a data-toggle="collapse" href="#dropdown-lvl2">
+                                            <i class="glyphicon glyphicon-off"></i> Sub Level <span
+                                                class="caret"></span>
+                                        </a>
+                                        <div id="dropdown-lvl2" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <ul class="nav navbar-nav">
+                                                    <li><a href="#">Link</a></li>
+                                                    <li><a href="#">Link</a></li>
+                                                    <li><a href="#">Link</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li> -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- <li class="active"><a href="#"><i class="fa fa-search"></i><span>Resume Library Search</span></a>
+                    </li> -->
+
+                        <li class="active">
+                            <a href="/newhire_prediction_time/"
+                                ><i class="fa fa-clock-o"></i
+                                ><span>Hire Time Prediction</span></a
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="right__section">
+                <div class="header__section">
+                    <div class="menu__icon">
+                        <i class="fa fa-bars menuIcon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="avtar__block">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a
+                                    class="nav-link dropdown-toggle"
+                                    href="#"
+                                    id="navbarDropdownMenuLink"
+                                    role="button"
+                                    data-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <img
+                                        src="{% static 'images/chris.jpg' %}"
+                                        width="40"
+                                        height="40"
+                                        class="rounded-circle"
+                                    />
+                                </a>
+                                <div
+                                    class="dropdown-menu"
+                                    aria-labelledby="navbarDropdownMenuLink"
+                                >
+                                  <p><a href="{% url 'logout' %}">Logout</a></p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                {% block content %}
+
+                {% endblock %}
+                <div class="logo">
+                    <img
+                        class="company_logo"
+                        src="{% static 'images/brainvire-logo.webp' %}"
+                        alt="logo"
+                    />
+                </div>
+            </div>
+        </div>
+    </body>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        var labels = {{ labels|safe }};
+        var values = {{ values|safe }};
+
+        $(document).ready(function() {
+        const employeeCount1 = document.getElementById("employeeCount1");
+
+        new Chart(employeeCount1, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Distribution Of Employees",
+                        data: values,
+                        backgroundColor: [
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 205, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(201, 203, 207, 0.2)",
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+        });
+    </script>
+    <script>
+        var labels = {{ labels|safe }};
+        var values = {{ values|safe }};
+
+        $(document).ready(function() {
+
+        const salaryRange = document.getElementById("salaryRange");
+
+        new Chart(salaryRange, {
+            type: "bar",
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: "Distribution Of Salary Range",
+                        data: values,
+                        backgroundColor: [
+                            "rgba(255, 99, 132, 0.2)",
+                            "rgba(255, 159, 64, 0.2)",
+                            "rgba(255, 205, 86, 0.2)",
+                            "rgba(75, 192, 192, 0.2)",
+                            "rgba(54, 162, 235, 0.2)",
+                            "rgba(153, 102, 255, 0.2)",
+                            "rgba(201, 203, 207, 0.2)",
+                        ],
+                        borderWidth: 1,
+                    },
+                ],
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
+        });
+  </script>
+  <script>
+    const growthInsights = document.getElementById("growthInsights");
+
+    new Chart(growthInsights, {
+        type: "line",
+        data: {
+            labels: ["Jan", "Feb", "March", "April", "May", "Jun"],
+            datasets: [
+                {
+                    label: "Employee Growth Insights",
+                    data: [15, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        "rgba(255, 99, 132, 0.2)",
+                        "rgba(255, 159, 64, 0.2)",
+                        "rgba(255, 205, 86, 0.2)",
+                        "rgba(75, 192, 192, 0.2)",
+                        "rgba(54, 162, 235, 0.2)",
+                        "rgba(153, 102, 255, 0.2)",
+                        "rgba(201, 203, 207, 0.2)",
+                    ],
+                    borderWidth: 1,
+                },
+            ],
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                },
+            },
+        },
+    });
+
+    // $( document ).ready(function() {
+    //     const reasonLeaving = document.getElementById('reasonLeaving');
+
+    //     new Chart(reasonLeaving, {
+    //     type: 'polarArea',
+    //     data: {
+    //         labels: ['Salary', 'Family', 'No Career Opportunity','Performce','Travelling'],
+    //         datasets: [{
+    //         label: 'Distribution Of Employees',
+    //         data: [10, 20,40,30,15],
+    //         borderWidth: 1
+    //         }]
+    //     },
+    //     options: {
+    //         scales: {
+    //         y: {
+    //             beginAtZero: true
+    //         }
+    //         }
+    //     }
+    //     });
+    // });
+</script>
+
+<script>
+    var departmentwise_leaving_employee = {{ departmentwise_leaving_employee|safe }};
+    var departmentwise_leaving_employee_counts = {{ departmentwise_leaving_employee_counts|safe }};
+
+    $(document).ready(function() {
+        // Use the labels and values in your chart configuration
+        const EmployeeLeaving = document.getElementById('EmployeeLeaving');
+        new Chart(EmployeeLeaving, {
+          type: 'bar',
+          data: {
+            labels: departmentwise_leaving_employee,
+            datasets: [{
+              label: 'Distribution Of Employees',
+              data: departmentwise_leaving_employee_counts,
+              backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 205, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(201, 203, 207, 1)'
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            layout: {
+              padding: 0
+            },
+            
+          }
+        });
+    
+        // Other chart configurations...
+    });
+    
+</script>
+
+<script>
+    // Get the current year
+    var currentYear = new Date().getFullYear();
+
+
+    // Get a reference to the select element
+    var selectElement = document.getElementById("year-select");
+
+    // Populate the select element with the next fifteen years
+    for (var i = 0; i < 15; i++) {
+        var option = document.createElement("option");
+        option.value = currentYear + i;
+        option.text = currentYear + i;
+        selectElement.appendChild(option);
+    }
+</script>
+
+
+<!-- Genderwise doughnut Graph in data_visualization -->
+<script>
+    var gender = {{ gender|safe }};
+    var gender_count = {{ gender_count|safe }};
+
+    $(document).ready(function() {
+        // Use the labels and values in your chart configuration
+        const ByGender = document.getElementById('ByGender');
+        new Chart(ByGender, {
+          type: 'doughnut',
+          data: {
+            labels: ["Male", "Female"],
+            datasets: [{
+              label: 'Distribution Of Employees',
+              data: gender_count,
+              
+              borderWidth: 1
+            }]
+          },
+          options: {
+            layout: {
+              padding: 0
+            },
+            
+          }
+        });
+    
+        // Other chart configurations...
+    });
+    
+</script>
+
+<!-- TerminationType doughnut graph in data_visualization -->
+<script>
+    var termination_type = {{ termination_type|safe }};
+    var termination_count = {{ termination_count|safe }};
+
+    $(document).ready(function() {
+        // Use the labels and values in your chart configuration
+        const Termination = document.getElementById('Termination');
+        new Chart(Termination, {
+          type: 'doughnut',
+          data: {
+            labels: termination_type,
+            datasets: [{
+              label: 'Distribution Of Employees',
+              data: termination_count,
+              
+              borderWidth: 1
+            }]
+          },
+          options: {
+            layout: {
+              padding: 0
+            },
+            
+          }
+        });
+    
+        // Other chart configurations...
+    });
+    
+</script>
+
+<!-- ReasonLeaving PolarArea Chart in datavisualization-->
+<script>
+    var reason = {{ reason|safe }};
+    var reason_count = {{ reason_count|safe }};
+    // A $( document ).ready() block.
+    $( document ).ready(function() {
+        const ReasonLeaving = document.getElementById('ReasonLeaving');
+    
+        new Chart(ReasonLeaving, {
+        type: 'polarArea',
+        data: {
+            labels: reason,
+            datasets: [{
+            label: 'Distribution Of Employees',
+            data: reason_count,
+            borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+            y: {
+                beginAtZero: true
+            }
+            }
+        }
+        });
+    });
+    
+</script>
+
+<script>
+    var departmentLabels = {{ department_labels|safe }};
+    var salaryValues = {{ salary_values|safe }};
+  
+    // Create a chart using Chart.js
+    var ctx = document.getElementById('salaryChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: departmentLabels,
+            datasets: [{
+                label: 'Overall Salary Sum',
+                data: salaryValues,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(201, 203, 207, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            var label = departmentLabels[context.dataIndex];
+                            var value = salaryValues[context.dataIndex];
+                            return label + ': ' + value;
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+<script>
+    var labels = {{ labels|safe }};
+    var values = {{ values|safe }};
+
+    $(document).ready(function() {
+        // Use the labels and values in your chart configuration
+        const employeeChart = document.getElementById('employeeChart');
+        new Chart(employeeChart, {
+          type: 'pie',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: 'Distribution Of Employees',
+              data: values,
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.2)",
+                "rgba(255, 159, 64, 0.2)",
+                "rgba(255, 205, 86, 0.2)",
+                "rgba(75, 192, 192, 0.2)",
+                "rgba(54, 162, 235, 0.2)",
+                "rgba(153, 102, 255, 0.2)",
+                "rgba(201, 203, 207, 0.2)",
+              ],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            layout: {
+              padding: 0
+            },
+            
+          }
+        });
+    
+        // Other chart configurations...
+    });
+    
+</script>
+
+</html>

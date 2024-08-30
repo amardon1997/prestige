@@ -1,0 +1,167 @@
+{% extends 'newbase.html' %}
+{% load static %}
+{% block content %}
+<div class="contain__area">
+    
+
+    <form method="POST" action="/newhire_prediction_time/">
+        {% csrf_token %}
+    <div class="row form__section">
+        <div class="col-md-12">
+            <h3 class="heading">Prediction Of Time & Salary</h3>
+        </div>
+        
+        
+        <div class="col-md-4">
+            <div class="input__block">
+                <label for="department">Department:</label>
+                <select id="department" name="department">
+                <option value="Business Support">Business Support</option>
+                <option value="Sales">Sales</option>
+                <option value="Microsoft">Microsoft</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="Mobile Application Development">Mobile Application Development</option>
+                <option value="Open Source">Open Source</option>
+                <option value="Quality">Quality</option>
+                <option value="Systems">Systems</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-4">
+            <div class="input__block">
+                <label>Enter Age</label>
+                <input type="text" />
+            </div>
+        </div> -->
+
+        <!-- <div class="col-md-4">
+            <div class="input__block">
+                <label>Enter Experience</label>
+                <input type="number" id="experience" name="experience" placeholder="Enter Experience" required>
+            </div>
+        </div> -->
+
+        <div class="col-md-4">
+            <div class="input__block">
+                <label for="experience">Select Experience</label>
+                <select id="experience" name="experience" required>
+                    <option value="">Select Experience</option>
+                    
+                    <option value="0">0</option>
+                    <option value="0">1</option>
+                    <option value="0">2</option>
+                    <option value="0">3</option>
+                    <option value="0">4</option>
+                    <option value="0">5</option>
+                    <option value="0">6</option>
+                    <option value="0">7</option>
+                    <option value="0">8</option>
+                    <option value="0">9</option>
+                    <option value="0">10</option>
+                    <option value="0">11</option>
+                    <option value="0">12</option>
+                    <option value="0">13</option>
+                    <option value="0">14</option>
+                    <option value="0">15</option>
+                    <option value="0">16</option>
+                    <option value="0">17</option>
+                    <option value="0">18</option>
+                    <option value="0">19</option>
+                    <option value="0">20</option>
+                    <option value="0">21</option>
+                    <option value="0">22</option>
+                    <option value="0">23</option>
+                    <option value="0">24</option>
+                    <option value="0">25</option>
+                    <option value="0">26</option>
+                    <option value="0">27</option>
+                    <option value="0">28</option>
+                    <option value="0">29</option>
+                    <option value="0">30</option>
+                    <option value="0">31</option>
+                    <option value="0">32</option>
+                    <option value="0">33</option>
+                    <option value="0">34</option>
+                    <option value="0">35</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- <div class="col-md-4">
+            <div class="input__block">
+                <label>Current CTC</label>
+                <input type="text" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="input__block">
+                <label>Expected CTC</label>
+                <input type="text" />
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="input__block">
+                <label>Location</label>
+                <input type="text" />
+            </div>
+        </div> -->
+
+        <div class="col-md-4">
+            <div class="input__block">
+                <label class="hide__label">Submit</label>
+                <button class="main__btn" type="submit" name="submit">Apply Filter</button>
+                <!-- <input type="submit" name="submit" value="Apply Filter"> -->
+            </div>
+        </div>
+        
+    </div>
+    </form>
+
+    <div class="row mt-5">
+        <div class="col-md-4">
+          <div class="card chart__block mh-auto">
+              <h3 class="heading">Predicted Time For Hiring</h3>
+              <!-- <canvas id="timeHire"></canvas> -->
+              <div class="top__count mb-0">
+                  <div class="card dash-widget">
+                      <div class="card-body">
+                          <span class="dash-widget-icon">
+                              <i class="fa fa-hourglass-half" aria-hidden="true"></i>
+                          </span>
+                          <div class="dash-widget-info">
+                              <h3>{{ hiring_time }}</h3>
+                              <span>Days</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+         </div>
+
+         <div class="col-md-4">
+          <div class="card chart__block mh-auto">
+              <h3 class="heading">Predicted Salary Offered</h3>
+              <!-- <canvas id="timeHire"></canvas> -->
+              <div class="top__count mb-0">
+                  <div class="card dash-widget">
+                      <div class="card-body">
+                          <span class="dash-widget-icon">
+                              <i class="fa fa-inr" aria-hidden="true"></i>
+                          </span>
+                          <div class="dash-widget-info">
+                              <h3>~ {{ predicted_salary}}</h3>
+                              <!-- <span>Days</span> -->
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+         </div>
+
+      </div>
+</div>
+
+{% endblock %}

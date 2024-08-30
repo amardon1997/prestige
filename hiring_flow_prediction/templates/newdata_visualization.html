@@ -1,0 +1,51 @@
+{% extends 'newbase.html' %}
+{% load static %}
+{% block content %}
+<div class="contain__area">
+    <div class="row chart__section">
+        <div class="col-md-12">
+            <div class="card chart__block">
+                <h3 class="heading">
+                    Department Wise Leaving Employees
+                </h3>
+                <div
+                    style="
+                        display: flex;
+                        height: 350px;
+                        justify-content: center;
+                        align-items: center;
+                    "
+                >
+                    <canvas id="EmployeeLeaving"></canvas>
+                </div>
+            </div>
+        </div>
+        <!----------------- data Visualization -->
+
+        <div class="col-md-4">
+            <div class="card chart__block">
+                <h3 class="heading">By Gender</h3>
+                <canvas id="ByGender"></canvas>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card chart__block">
+                <h3 class="heading">Termination Type</h3>
+                <canvas id="Termination"></canvas>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <!-- <div class="card chart__block">
+            <h3 class="heading">Leaving Reasons</h3>
+            <canvas id="reasonLeaving" width="20"></canvas>
+        </div> -->
+            <div class="card chart__block">
+                <h3 class="heading">Leaving Reason</h3>
+                <canvas id="ReasonLeaving"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
